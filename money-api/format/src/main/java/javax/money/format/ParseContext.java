@@ -11,6 +11,7 @@ package javax.money.format;
 import java.text.ParsePosition;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 
@@ -27,6 +28,8 @@ public final class ParseContext<T> {
 	private int errorIndex = -1;
 	/** The full input. */
 	private CharSequence originalInput;
+        /** The required locale. */
+        private Locale locale;
 	/**
 	 * Item factory to determine if the result was successfuylly parsed and to
 	 * evaluate the result item.
@@ -45,14 +48,18 @@ public final class ParseContext<T> {
 	 * @param text
 	 *            The test to be parsed.
 	 */
-	public ParseContext(CharSequence text, ItemFactory<T> itemFactory) {
+	public ParseContext(CharSequence text, Locale locale, ItemFactory<T> itemFactory) {
 		if (text == null) {
 			throw new IllegalArgumentException("test is required");
 		}
-		this.originalInput = text;
-		if (itemFactory == null) {
+                if (locale == null) {
+			throw new IllegalArgumentException("locale is required");
+		}
+                if (itemFactory == null) {
 			throw new IllegalArgumentException("itemFactory is required");
 		}
+		this.originalInput = text;
+                this.locale = locale;
 		this.itemFactory = itemFactory;
 	}
 
