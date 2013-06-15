@@ -171,26 +171,6 @@ public class MoneyCurrency implements CurrencyUnit, Serializable,
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see javax.money.CurrencyUnit#getValidFrom()
-	 */
-	@Override
-	public Long getValidFrom() {
-		return validFrom;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see javax.money.CurrencyUnit#getValidUntil()
-	 */
-	@Override
-	public Long getValidUntil() {
-		return validUntil;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
 	 * @see javax.money.CurrencyUnit#getCurrencyCode()
 	 */
 	@Override
@@ -238,7 +218,7 @@ public class MoneyCurrency implements CurrencyUnit, Serializable,
 		if (compare == 0) {
 			compare = getCurrencyCode().compareTo(currency.getCurrencyCode());
 		}
-		if (compare == 0) {
+	/*	if (compare == 0) {
 			if (validFrom == null && currency.getValidFrom() != null) {
 				compare = -1;
 			} else if (validFrom != null && currency.getValidFrom() == null) {
@@ -255,7 +235,7 @@ public class MoneyCurrency implements CurrencyUnit, Serializable,
 			} else if (validUntil != null) {
 				compare = validUntil.compareTo(currency.getValidUntil());
 			}
-		}
+		} */
 		return compare;
 	}
 

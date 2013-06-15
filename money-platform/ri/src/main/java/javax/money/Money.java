@@ -177,7 +177,7 @@ public final class Money implements MonetaryAmount, Comparable<MonetaryAmount> {
 		return new Money(MoneyCurrency.of(currencyCode), number, mathContext);
 	}
 
-    /**
+/**
 	 * Factory method creating a zero instance with the given {@code currency);
 	 * @param currency the target currency of the amount being created.
 	 * @return
@@ -186,7 +186,7 @@ public final class Money implements MonetaryAmount, Comparable<MonetaryAmount> {
 		return new Money(currency, BigDecimal.ZERO, getDefaultMathContext());
 	}
 
-    /**
+/**
 	 * Factory method creating a zero instance with the given {@code currency);
 	 * @param currency the target currency of the amount being created.
 	 * @return
@@ -336,7 +336,7 @@ public final class Money implements MonetaryAmount, Comparable<MonetaryAmount> {
 		}
 		return BigDecimal.valueOf(num.doubleValue());
 	}
-	
+
 	private BigDecimal getBigDecimal(Number number, MathContext mathContext) {
 		if (number instanceof BigDecimal) {
 			return (BigDecimal) number;
@@ -811,8 +811,8 @@ public final class Money implements MonetaryAmount, Comparable<MonetaryAmount> {
 	 * @see javax.money.MonetaryAmount#adjust(javax.money.AmountAdjuster)
 	 */
 	@Override
-	public MonetaryAmount with(MonetaryOperator adjuster) {
-		return adjuster.apply(this);
+	public Money with(MonetaryOperator adjuster) {
+		return (Money) adjuster.apply(this);
 	}
 
 	/*
