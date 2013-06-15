@@ -31,12 +31,7 @@
 		</license>
 	</licenses>
 
-	<modules>
-		<module>ri</module>
-		<module>java-se</module>
-		<module>cdi</module>
-		<module>java-ee</module>
-	</modules>
+	<modules></modules>
 
 	<dependencyManagement>
 		<dependencies>

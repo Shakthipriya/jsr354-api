@@ -89,7 +89,7 @@ public class TranslatedLiteralToken<T> extends AbstractFormatToken<T> {
 		}
 		try {
 			ResourceBundle rb = ResourceBundle.getBundle(bundle,
-					style.getTranslationLocale());
+					style.getLocale());
 			return rb.getString(key);
 		} catch (Exception e) {
 			return String.valueOf(key);

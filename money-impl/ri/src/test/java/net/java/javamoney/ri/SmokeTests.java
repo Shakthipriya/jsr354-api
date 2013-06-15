@@ -14,6 +14,7 @@ import javax.money.Money;
 import javax.money.MoneyCurrency;
 import javax.money.MoneyRounding;
 import javax.money.convert.ConversionProvider;
+import javax.money.convert.CurrencyConversion;
 import javax.money.convert.ExchangeRate;
 import javax.money.convert.ExchangeRateType;
 import javax.money.convert.MonetaryConversions;
@@ -73,7 +74,6 @@ public class SmokeTests {
 		assertEquals(2.0d, amount3.doubleValue(), 0);
 	}
 
-
 	@Test
 	public void testExchangeEZB() {
 		ConversionProvider prov = MonetaryConversions
@@ -92,7 +92,7 @@ public class SmokeTests {
 		System.out.println(rate3);
 		System.out.println(rate4);
 	}
-	
+
 	@Test
 	public void testExchangeIMF() {
 		ConversionProvider prov = MonetaryConversions
@@ -146,6 +146,15 @@ public class SmokeTests {
 		assertEquals(tgt, tgt2);
 	}
 
+	public void conversion2() {
+		CurrencyConversion convToEuro = MonetaryConversions
+				.getConversionProvider(EZB_RATE_TYPE).getConverter()
+				.getConversion(MoneyCurrency.of("EUR"));
+		Money m1InEuro = Money.of(MoneyCurrency.of("CHF"), 100).with(convToEuro);
+		Money m2InEuro = Money.of(MoneyCurrency.of("GBP"), 100).with(convToEuro);
+		Money m3InEuro = Money.of(MoneyCurrency.of("USD"), 100).with(convToEuro);
+	}
+
 	@Test
 	public void testGettingFormatters() throws ItemParseException {
 		// Using formatters
@@ -157,7 +166,8 @@ public class SmokeTests {
 		System.out.println("Formatted amount: " + formatter.format(amount));
 		assertEquals(1.0d, amount.doubleValue(), 0);
 
-		LocalizationStyle.Builder b = new LocalizationStyle.Builder("CODE", Locale.GERMANY);
+		LocalizationStyle.Builder b = new LocalizationStyle.Builder("CODE",
+				Locale.GERMANY);
 		ItemFormat<CurrencyUnit> formatter2 = MonetaryFormats.getItemFormat(
 				CurrencyUnit.class, b.build());
 		CurrencyUnit cur = formatter2.parse("CHF");

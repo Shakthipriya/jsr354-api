@@ -11,11 +11,7 @@
 	<packaging>pom</packaging>
 	<name>JSR 354 (Money and Currency) - Main APIs</name>
 
-	<modules>
-		<module>convert</module>
-		<module>format</module>
-		<module>ext</module>
-	</modules>
+	<modules></modules>
 	<description>JSR 354 (Money and Currency) - Public API</description>
 
 	<dependencies>

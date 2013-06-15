@@ -21,14 +21,15 @@ package javax.money;
  * wraps a {@link MonetaryAmount} and adds implicit rounding.
  * 
  * <p>
- * This interface is considered to be adapted/compatible with {@code java.util.function.UnaryOperator} 
- * as introduced in Java 8.
+ * This interface is considered to be adapted/compatible with
+ * {@code java.util.function.UnaryOperator} as introduced in Java 8.
  * 
  * @version 0.9
  * @author Werner Keil
  * @author Anatole Tresch
  */
-//@FunctionalInterface for Java 9
-public interface MonetaryOperator extends MonetaryFunction<MonetaryAmount,MonetaryAmount> {
+// @FunctionalInterface for Java 9
+public interface MonetaryOperator extends
+		MonetaryFunction<MonetaryAmount, MonetaryAmount> {
 
 }

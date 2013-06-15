@@ -123,7 +123,7 @@ public class NumberToken extends AbstractFormatToken<Number> {
 		DecimalFormat formatUsed = this.format;
 		if (formatUsed == null) {
 			formatUsed = (DecimalFormat) DecimalFormat.getInstance(style
-					.getNumberLocale());
+					.getLocale());
 		}
 		if (this.numberGroup != null) { // this.fractionGroup!=null ||
 			formatUsed.setGroupingUsed(false);

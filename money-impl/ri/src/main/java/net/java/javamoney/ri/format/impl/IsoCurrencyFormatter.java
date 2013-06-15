@@ -98,10 +98,10 @@ public class IsoCurrencyFormatter implements ItemFormat<CurrencyUnit> {
 			Currency isoCurrency = Currency.getInstance(item.getCurrencyCode());
 			switch (renderedField) {
 			case SYMBOL:
-				return isoCurrency.getSymbol(this.style.getTranslationLocale());
+				return isoCurrency.getSymbol(this.style.getLocale());
 			case DISPLAYNAME:
 				return isoCurrency.getDisplayName(this.style
-						.getTranslationLocale());
+						.getLocale());
 			}
 		} 
 		// Overall fallback, return code...
